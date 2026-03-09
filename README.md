@@ -11,9 +11,21 @@
 ## 前置条件
 
 ### 1. uvx已安装
+
 ```bash
+# 检查是否已安装
 which uvx
-# 应该显示：/root/.local/bin/uvx
+```
+
+**如未安装**（Linux 服务器）：
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**软链接到系统 PATH**（确保 mcporter 能找到）：
+```bash
+ln -s /root/.local/bin/uvx /usr/local/bin/uvx
+ln -s /root/.local/bin/uv /usr/local/bin/uv
 ```
 
 ### 2. API Key配置
@@ -24,7 +36,12 @@ which uvx
 
 ## MCP服务器配置
 
-编辑 `<workspace>/config/mcporter.json`，添加MiniMax服务器：
+**配置文件位置**：
+- OpenClaw：`<workspace>/config/mcporter.json`
+- OpenCode 本地：`~/.mcporter/mcporter.json`
+- OpenCode sg1：`/root/.mcporter/mcporter.json`
+
+添加 MiniMax 服务器：
 
 ```json
 {
